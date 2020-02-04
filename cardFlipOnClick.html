@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+
+
+    <!-- <script src='main.js'></script> -->
+
+    <style>
+        .card {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            margin: -150px;
+
+            perspective: 300px;
+        }
+
+        .content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 2.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-style: preserve-3d;
+
+        }
+
+        .card .content.card-flip {
+            transform: rotateY(180deg);
+            transition: transform 2.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: rgb(128, 120, 120);
+            line-height: 200px;
+            color: #03446A;
+            text-align: center;
+            font-size: 60px;
+            border-radius: 5px;
+            backface-visibility: hidden;
+        }
+
+        .back {
+            background: #03446A;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <div id="card" class="card">
+        <div id="content" class="content">
+            <div class="front">
+                Front
+            </div>
+            <div class="back ">
+                Back!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var card = document.getElementById("card");
+
+            card.addEventListener("click", function () {
+                var content = document.getElementById("content");
+                var classlists = content.classList;
+                classlists.toggle("card-flip")
+            });
+        })();
+
+
+    </script>
+</body>
+
+</html>
